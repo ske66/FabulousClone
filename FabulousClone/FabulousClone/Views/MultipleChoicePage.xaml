@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="FabulousClone.Views.MultipleChoicePage" BackgroundColor="#260E1B">
+
+    <StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="24">
+            <Label TextColor="White" FontAttributes="Bold" Padding="4,0" FontSize="28" Text="{Binding Question.Title}"/>
+            <StackLayout BindableLayout.ItemsSource="{Binding Choices}" x:Name="ChoiceList" Margin="0,8,0,0">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame HasShadow="True" CornerRadius="8"  BackgroundColor="#04020F">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BindingContext.ChoiceTappedCommand, Source={x:Reference ChoiceList}}" CommandParameter="{Binding Id}"/>
+                                </Frame.GestureRecognizers>
+                                <Label Margin="4,32,0,0" TextColor="White" FontAttributes="Bold" FontSize="18" VerticalOptions="End" Text="{Binding Choice}" />
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

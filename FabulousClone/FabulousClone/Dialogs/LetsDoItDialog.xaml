@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<popups:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:popups="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                  BackgroundColor="Transparent"
+              BackgroundInputTransparent="True"
+              HasSystemPadding="False"
+
+    x:Class="FabulousClone.Popups.LetsDoItDialog">
+    <!--You can set an animation in the xaml file or in the csharp code behind-->
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <popups:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Bottom"
+            PositionOut="Bottom" 
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </popups:PopupPage.Animation>
+    <!--You can use any elements here which are extended from Xamarin.Forms.View-->
+    <StackLayout 
+        VerticalOptions="EndAndExpand" 
+        HorizontalOptions="FillAndExpand" 
+       >
+        <Frame CornerRadius="8" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource Secondary}" >
+            <StackLayout Padding="16">
+                <Image Source="like.png"/>
+                <Label Text="Let's get to know the new you" FontSize="24" Padding="32,0" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center"/>
+                <Label Text="It's time to personalize your Fabulous Fourney. Together, we'll figure out a way to modify your habits to suit your lifestyle" TextColor="Black" FontAttributes="Bold" LineHeight="1.25"  HorizontalTextAlignment="Center" FontSize="20"></Label>
+                <Button BackgroundColor="{StaticResource Accent}" Command="{Binding LetsDoItCommand}" Margin="0,8" TextColor="White" Text="Let's Do it"></Button>
+            </StackLayout>
+        </Frame>
+
+    </StackLayout>
+</popups:PopupPage>

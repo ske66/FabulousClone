@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="FabulousClone.Views.NamePage" BackgroundColor="{StaticResource Background}">
+    <StackLayout>
+    <StackLayout VerticalOptions="CenterAndExpand" Padding="24">
+        <Label TextColor="White" FontAttributes="Bold" Padding="4,0" FontSize="28" Text="First, let's get to know you."/>
+            <Label TextColor="White" FontAttributes="Bold" Padding="4,0" FontSize="16" Text="What should we call you?" />
+            <Entry Placeholder="Enter your name" TextColor="White" Text="{Binding Name}" FontAttributes="Bold" FontSize="28"  PlaceholderColor="{StaticResource PrimaryVariant}" BackgroundColor="Transparent"/>
+    </StackLayout>
+            <Frame HasShadow="true" CornerRadius="8" BackgroundColor="{StaticResource Primary}">
+                <Button Text="Next" Command="{Binding NextCommand}" />
+            </Frame>
+    </StackLayout>
+</ContentPage>

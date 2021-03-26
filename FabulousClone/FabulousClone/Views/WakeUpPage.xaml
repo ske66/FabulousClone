@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="FabulousClone.Views.WakeUpPage" BackgroundColor="{StaticResource Background}">
+    <StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="24">
+            <Label TextColor="White" FontAttributes="Bold" Padding="4,0" FontSize="28" Text="When do you wake up generally?"/>
+            <StackLayout BindableLayout.ItemsSource="{Binding WakeUpTimes}" x:Name="TimeList">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="0,8">
+                            <Frame HasShadow="True" CornerRadius="8" BackgroundColor="{Binding Background}" HorizontalOptions="CenterAndExpand" >
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BindingContext.TimeTappedCommand, Source={x:Reference TimeList}}" CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                                <Label TextColor="{Binding TextColor}" FontAttributes="Bold" FontSize="24" VerticalOptions="End" Margin="0,-8" Text="{Binding Time}" />
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+            <Frame Margin="0,8" HasShadow="True" CornerRadius="8" BackgroundColor="{Binding TimePickerBackground}" HorizontalOptions="CenterAndExpand" >
+                <TimePicker Format="HH:mm" Margin="-4,-16,-4,-16" Time="{Binding Time}" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="24" TextColor="{Binding TimePickerTextColor}" />
+            </Frame>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,0,0,16">
+            <Label FontAttributes="Bold" Text="By contributing, you agree to our" TextColor="White"/>
+            <Label FontAttributes="Bold" Text="terms and conditions" TextColor="{StaticResource Secondary}" TextDecorations="Underline" />
+        </StackLayout>
+        <Frame HasShadow="true" CornerRadius="8" BackgroundColor="{StaticResource Primary}">
+            <Button Text="Done" Command="{Binding NextCommand}" />
+        </Frame>
+    </StackLayout>
+
+</ContentPage>

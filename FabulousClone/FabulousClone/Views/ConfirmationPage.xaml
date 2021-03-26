@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="FabulousClone.Views.ConfirmationPage" BackgroundColor="{StaticResource Background}">
+    <StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="24">
+            <Label TextColor="White" FontAttributes="Bold" Padding="4,0" FontSize="28" Text="We see the strength in you"/>
+            <Label TextColor="White" FontAttributes="Bold" Padding="4,0" FontSize="16" Text="You have the power to transform your life for the better. Are you ready to meet the new you?" />
+            <Image Source="heart.png" Margin="0,16"/>
+
+            <Button Text="Yes" Command="{Binding OkCommand}" />
+            <Button BackgroundColor="{StaticResource PrimaryVariant}" TextColor="White" Text="No" Command="{Binding NoCommand}" />
+
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>
