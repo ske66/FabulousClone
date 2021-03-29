@@ -21,8 +21,7 @@ namespace FabulousClone.Services
 
         public async Task<bool> GetUser()
         {
-            var user = await _userRepository.FindById(1);
-            User = user;
+            User = await _userRepository.FindById(1);
 
             return User != null;
         }
